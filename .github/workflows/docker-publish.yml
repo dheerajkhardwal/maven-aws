@@ -17,11 +17,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: dheerajkhardwal/maven-aws
           tag_with_ref: true
-          file: openjdk-8-slim/Dockerfile
+          file: ./openjdk-8-slim/Dockerfile
           push: true
