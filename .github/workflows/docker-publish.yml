@@ -10,8 +10,8 @@ jobs:
   # Push image to Docker Hub.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
+    name: "Push to docker"
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +23,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: dheerajkhardwal/maven-aws
           tag_with_ref: true
-          context: openjdk-8-slim
+          file: openjdk-8-slim/Dockerfile
           push: true
-          tags: dheerajkhardwal/maven-aws:latest
